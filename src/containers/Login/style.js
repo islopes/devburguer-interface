@@ -73,6 +73,7 @@ export const Form = styled.form`
     height: 52px;
     border: none;
     border-radius: 5px;
+    padding: 0 10px;
   }
 `;
 export const InputContainer = styled.div`
@@ -81,4 +82,12 @@ export const InputContainer = styled.div`
   flex-direction: column;
   gap: 5px;
   width: 100%;
+
+  p {
+    font-size: 14px;
+    line-height: 80%;
+    color: #cf3057;
+    font-weight: 600;
+    height: 10px;
+  }
 `;
