@@ -3,7 +3,8 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import { api } from '../../services/api';
-import { Container, ContainerItems, Title } from './styles';
+import { Container, Title } from './styles';
+import { CardProduct } from '../CardProduct';
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([]);
@@ -44,20 +45,16 @@ export function OffersCarousel() {
     <Container>
       <Title>Ofertas do dia</Title>
 
-      {
-        <Carousel
-          responsive={responsive}
-          infinite={true}
-          partialVisbile={false}
-          itemClass="carousel-item"
-        >
-          {offers.map((product) => (
-            <ContainerItems key={product.id} imageUrl={product.url}>
-              <p>{product.name}</p>
-            </ContainerItems>
-          ))}
-        </Carousel>
-      }
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        partialVisbile={false}
+        itemClass="carousel-item"
+      >
+        {offers.map((product) => (
+          <CardProduct key={product.id} product={product} />
+        ))}
+      </Carousel>
     </Container>
   );
 }
