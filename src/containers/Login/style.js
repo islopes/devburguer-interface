@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import backgroundImage from '../../assets/background.jpg';
 import backgroundImageLogo from '../../assets/backgroud-login.jpg';
+import { Link as ReactLink } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -90,4 +91,9 @@ export const InputContainer = styled.div`
     font-weight: 600;
     height: 10px;
   }
+`;
+
+export const Link = styled(ReactLink)`
+  text-decoration: none;
+  color: #fff;
 `;
