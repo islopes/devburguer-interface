@@ -23,13 +23,13 @@ export const Container = styled.div`
   p {
     font-size: 18px;
     color: #ff8c05;
-    line-height: 20px;
+    line-height: 50px;
     font-weight: 700;
     margin-top: 40px;
   }
 
   strong {
-    font-size: 18px;
+    font-size: 20px;
     color: #363636;
     line-height: 20px;
     font-weight: 800;
