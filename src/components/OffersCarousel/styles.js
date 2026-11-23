@@ -2,13 +2,23 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   .carousel-item {
-    padding-right: 40px;
+    padding-right: 30px;
   }
   overflow-x: hidden;
 
   .react-multi-carousel-list {
     overflow: visible;
   }
+
+  /* .react-multiple-carousel__arrow--left {
+    left: 15px;
+    top: 10px;
+  }
+
+  .react-multiple-carousel__arrow--rigth {
+    right: 50px;
+    top: 10px;
+  } */
 
   padding-left: 40px;
   padding-bottom: 40px;
