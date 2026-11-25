@@ -9,10 +9,14 @@ import {
 import { api } from '../../services/api';
 import { formtPrice } from '../../utils/formatPrice';
 import { CardProduct } from '../../components/CardProduct';
+import { useNavigate } from 'react-router-dom';
 
 export function Menu() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [activeCategory, setactiveCategory] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadCategories() {
@@ -51,7 +55,23 @@ export function Menu() {
 
       <CategoryMenu>
         {categories.map((category) => (
-          <CategryButton key={category.id}>{category.name}</CategryButton>
+          <CategryButton
+            key={category.id}
+            onClick={() => {
+              navigate(
+                {
+                  pathname: '/cardapio',
+                  search: `?categoria=${category.id}`,
+                },
+                {
+                  replace: true,
+                },
+                setactiveCategory(category.id),
+              );
+            }}
+          >
+            {category.name}
+          </CategryButton>
         ))}
       </CategoryMenu>
 
