@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { api } from '../../services/api';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../hooks/UserContext';
 
 import {
   Container,
@@ -19,6 +20,8 @@ import {
 
 export function Login() {
   const navigate = useNavigate();
+
+  const { putUserDate } = useUser();
 
   const schema = yup
 
@@ -43,9 +46,7 @@ export function Login() {
   });
 
   const onSubmit = async (data) => {
-    const {
-      data: { token },
-    } = await toast.promise(
+    const { data: userData } = await toast.promise(
       api.post('/sessions', {
         email: data.email,
         password: data.password,
@@ -63,8 +64,7 @@ export function Login() {
         error: 'Email ou Senha Incorretos ',
       },
     );
-
-    localStorage.setItem('Token:', token);
+    putUserDate(userData);
   };
   return (
     <Container>
